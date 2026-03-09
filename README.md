@@ -4,6 +4,29 @@ This project is a technical demonstration of **Asynchronous Background Processin
 
 ---
 
+## 🚀 API Reference (Full CRUD)
+
+The backend is a RESTful service running on `http://localhost:5001`.
+
+| Method | Endpoint | Description | Status Code |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/tasks` | List all active/pending tasks. | `200 OK` |
+| `GET` | `/api/tasks/deleted` | List all archived (deleted) tasks. | `200 OK` |
+| `POST` | `/api/tasks` | Create a new task. | `201 Created` |
+| `PATCH` | `/api/tasks/:id` | Update task (e.g., toggle completion). | `200 OK` |
+| `DELETE` | `/api/tasks/:id` | Enqueue a task for slow deletion. | `202 Accepted` |
+| `POST` | `/api/tasks/bulk-delete` | Enqueue multiple tasks at once. | `202 Accepted` |
+| `POST` | `/api/tasks/reset` | Restore system to initial 10 tasks. | `200 OK` |
+
+---
+
+## 📱 UI & Mobile Responsiveness
+- **Mobile-First Design**: Built with **Tailwind CSS v4**, the layout is fully responsive, transitioning from a single-column stack on mobile to a side-by-side dashboard on desktop.
+- **Modern Aesthetics**: Utilizes clean borders, soft shadows, and a "Recently Deleted" sidebar to mimic a production admin dashboard.
+- **Interactive Feedback**: Uses pulsing animations and status badges ("Pending on Backend...") to keep the user informed during asynchronous operations.
+
+---
+
 ## 🎯 Project Goal
 The primary objective was to move beyond a standard synchronous CRUD app and implement **Eventual Consistency**. By decoupling the "User Request" from the "Resource Intensive Work," we ensure a high-performance, non-blocking User Experience.
 
